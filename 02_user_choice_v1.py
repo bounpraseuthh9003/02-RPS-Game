@@ -5,16 +5,10 @@ def choice_checker(question):
     while not valid:
 
         # Ask users for choice
-        response = input(question).lower()
+        response = input(question)
 
         if response == "rock" or response == "r":
                 return response
-        elif response == "paper" or response == "p":
-                return response
-        elif response == "scissors" or response == "s":
-                return response
-        else:
-            print("Please pick r / p /s")
 
 # Main routine goes here
 
