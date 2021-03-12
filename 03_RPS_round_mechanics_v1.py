@@ -21,7 +21,6 @@ def check_rounds():
 
         return response
 
-
 # Main routine goes here
 
 rounds_played = 0
