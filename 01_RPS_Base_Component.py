@@ -1,4 +1,4 @@
-# import random
+import random
 
 
 # Functions go here
@@ -83,6 +83,8 @@ while end_game == "no":
     choose = choice_checker(choose_instructions, rps_list, choose_error)
 
     # Get computer choice
+    comp_choice = random.choice(rps_list[:-1])
+    print("Comp Choice: ", comp_choice)
 
     # Compare Choices
 
