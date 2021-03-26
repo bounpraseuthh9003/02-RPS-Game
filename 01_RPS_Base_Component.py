@@ -52,6 +52,7 @@ def choice_checker(question, valid_list, error):
 # Lists of valid responses
 yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
+test_results = ["won", "won", "loss", "loss", "tie"]
 
 # Ask users if they have played before
 # if 'yes', show instructions
@@ -59,6 +60,10 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 # Ask users for # of rounds then loop...
 
 rounds_played = 0
+
+# lost / draw
+rounds_lost = 0
+rounds_draw = 0
 
 # Ask users for # of rounds then loop, <enter> for infinite mode
 rounds = check_rounds()
@@ -80,20 +85,42 @@ while end_game == "no":
     choose_error = "Please choose from rock / paper / scissors (or xxx to quit)"
 
     # Ask user for choice and check if it is valid
-    choose = choice_checker(choose_instructions, rps_list, choose_error)
+    user_choice = choice_checker(choose_instructions, rps_list, choose_error)
 
     # Get computer choice
     comp_choice = random.choice(rps_list[:-1])
     print("Comp Choice: ", comp_choice)
 
     # Compare Choices
+    if comp_choice == user_choice:
+        result = "tie"
+        rounds_draw += 1
+    elif user_choice == "rock" and comp_choice == "scissors":
+        result = "won"
+    elif user_choice == "paper" and comp_choice == "rock":
+        result = "won"
+    elif user_choice == "scissors" and comp_choice == "paper":
+        result = "won"
+    else:
+        result = "lost"
+        rounds_lost += 1
+
+    if result == "tie":
+        feedback = "It's a tie"
+    else:
+        feedback = "{} vs {} - you {}".format(user_choice, comp_choice, result)
+
+    # Output results
+    print(feedback)
+
+    rounds_played += 1
 
     # End game if exit code is typed
-    if choose == "xxx":
+    if user_choice == "xxx":
         break
 
     # rest of loop / game
-    print("You chose {}".format(choose))
+    print("You chose {}".format(user_choice))
 
     rounds_played += 1
 
@@ -105,3 +132,13 @@ while end_game == "no":
 # if 'yes' show game history
 
 # Show game statistics
+
+# Quick Calculations (stats)
+rounds_won = rounds_played - rounds_lost - rounds_draw
+
+# End of Game statements
+print()
+print('****** End Game Summary ******')
+print("Won: {} \t|\t Lost: {} \t|\t Draw: {}".format(rounds_won, rounds_lost, rounds_draw))
+print()
+print("Thanks for playing")
