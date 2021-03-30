@@ -53,12 +53,12 @@ def choice_checker(question, valid_list, error):
 yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
 test_results = ["won", "won", "loss", "loss", "tie"]
+summary = []
 
 # Ask users if they have played before
 # if 'yes', show instructions
 
 # Ask users for # of rounds then loop...
-
 rounds_played = 0
 
 # lost / draw
@@ -89,7 +89,6 @@ while end_game == "no":
 
     # Get computer choice
     comp_choice = random.choice(rps_list[:-1])
-    print("Comp Choice: ", comp_choice)
 
     # Compare Choices
     if comp_choice == user_choice:
@@ -120,7 +119,6 @@ while end_game == "no":
         break
 
     # rest of loop / game
-    print("You chose {}".format(user_choice))
 
     rounds_played += 1
 
@@ -136,9 +134,20 @@ while end_game == "no":
 # Quick Calculations (stats)
 rounds_won = rounds_played - rounds_lost - rounds_draw
 
+# Quick Calculations (percent)
+percent_win = rounds_won / rounds_played * 100
+percent_lose = rounds_lost / rounds_played * 100
+percent_tie = rounds_draw / rounds_played * 100
+
 # End of Game statements
 print()
 print('****** End Game Summary ******')
 print("Won: {} \t|\t Lost: {} \t|\t Draw: {}".format(rounds_won, rounds_lost, rounds_draw))
+print()
+
+# Game statements
+print("******** Game Statistics ********")
+print("Won: {}, ({:.0f}%)\nLost: {}, ({:.0f}%)\nDraw: {}, ({:.0f}%)".format(rounds_won, percent_win, rounds_lost,
+                                                                         percent_lose, rounds_draw, percent_tie))
 print()
 print("Thanks for playing")
