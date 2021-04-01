@@ -1,6 +1,5 @@
 import random
 
-
 played_before = ""
 
 # Instructions
