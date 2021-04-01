@@ -2,6 +2,7 @@ import random
 
 
 played_before = ""
+
 # Instructions
 instructions = "**** How To Play ****\n" \
                "\n" \
@@ -16,8 +17,7 @@ instructions = "**** How To Play ****\n" \
                "- Scissors beats paper\n" \
                "- Paper beats rock\n" \
                "\n" \
-               "*** Have Fun Playing ***\n" \
-               "\n"
+               "*** Have Fun Playing ***"
 
 while played_before.lower != "xxx":
     # Ask the user if they have played before
@@ -40,6 +40,7 @@ while played_before.lower != "xxx":
     else:
         print("Please type yes / no")
         print()
+
 
 # Functions go here
 def check_rounds():
@@ -140,6 +141,8 @@ while end_game == "no":
         result = "won"
     elif user_choice == "scissors" and comp_choice == "paper":
         result = "won"
+    elif user_choice == "xxx" or user_choice == "x":
+        break
     else:
         result = "lost"
         rounds_lost += 1
@@ -152,14 +155,11 @@ while end_game == "no":
     # Output results
     print(feedback)
 
-    rounds_played += 1
-
     # End game if exit code is typed
     if user_choice == "xxx":
         break
 
     # rest of loop / game
-
     rounds_played += 1
 
     # end game if requested # of rounds has been played
