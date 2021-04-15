@@ -204,8 +204,7 @@ while end_game == "no":
     if rounds_played == rounds:
         break
 
-# If rounds more than 10, Ask user if they want to see their game history
-
+# If rounds more than 10 rounds, Ask user if they want to see their game history
 
 # less than 10 automatically display
 
@@ -228,7 +227,7 @@ print('****** End Game Summary ******')
 print("Won: {} \t|\t Lost: {} \t|\t Draw: {}".format(rounds_won, rounds_lost, rounds_draw))
 print()
 
-# Game statements
+# Game statistics statements
 print("******** Game Statistics ********")
 print("Won: {}, ({:.0f}%)\nLost: {}, ({:.0f}%)\nDraw: {}, ({:.0f}%)".format(rounds_won, percent_win, rounds_lost,
                                                                          percent_lose, rounds_draw, percent_tie))
